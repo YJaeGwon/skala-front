@@ -1,4 +1,4 @@
 # skala-front
 skala 프론트엔드 프로젝트
 
-SSH 
+- 과제 수행 저장소
