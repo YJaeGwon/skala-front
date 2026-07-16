@@ -1,86 +1,223 @@
+/* 구글 폰트 (Gowun Dodum) - HTML에 <link> 없이 CSS에서 바로 불러옴 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
 /* ===== 과제1: 전체 테마 및 텍스트 Styling ===== */
 body {
-  /* font-family(구글 폰트), background-color 등 */
+  font-family: 'Gowun Dodum', sans-serif;
+  background-color: #f6f4ef;
+  color: #333333;
 }
 
 h1, h2 {
-  /* color, font-size, padding, border 등 */
+  color: #2f6f5e;
+  padding: 8px 4px;
+  border-bottom: 3px solid #ffb703;
 }
 
 a {
-  /* color, text-decoration 등 */
+  color: #2f6f5e;
+  text-decoration: none;
 }
 
 
 /* ===== 과제2: 박스 모델의 이해 ===== */
 .container {
-  /* 가운데 정렬: max-width, margin: 0 auto 등 */
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .trip-card {
-  /* background, border, padding, margin 등 */
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #e0ddd4;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px;
+  text-align: center;
 }
 
 table, th, td {
-  /* border, padding 등 */
+  border: 1px solid #cfcac0;
+  border-collapse: collapse;
+  padding: 8px 12px;
+  text-align: center;
 }
 
 
 /* ===== 과제3: 가독성 높은 회원가입 화면 ===== */
 input, textarea, select {
-  /* width 통일 */
+  width: 260px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid #cfcac0;
+  border-radius: 6px;
+}
+
+/* 라디오/체크박스는 위 규칙(260px 폭)에서 제외하고 간격만 좁게 조정 */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  border: none;
+  margin: 0 4px 0 0;
 }
 
 fieldset {
-  /* border, border-radius 등 */
+  border: 1px solid #e0ddd4;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
 }
 
 .btn-submit, .btn-reset {
-  /* 버튼 배경색, padding, border 등 */
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-submit {
+  background-color: #2f6f5e;
+  color: #ffffff;
+}
+
+.btn-reset {
+  background-color: #e0ddd4;
+  color: #333333;
 }
 
 
 /* ===== 과제4: Flex와 Grid로 레이아웃 정리하기 ===== */
 nav ul {
-  /* display: flex 등으로 바로가기 가로 배치 */
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
 }
 
 .content-wrapper {
-  /* display: flex 등으로 main과 aside 가로 배치 */
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.content-wrapper main {
+  flex: 2;
+}
+
+.content-wrapper aside {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
 }
 
 .trip-grid-container {
-  /* display: grid, grid-template-columns 등으로 3열 배치 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* 여행 사진 슬라이더 - 사진이 커도 페이지가 아닌 슬라이더 내부에서만 넘어감 */
+.trip-slider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.slider-viewport {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slider-track .trip-card {
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+.slider-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slider-btn {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: #2f6f5e;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
 }
 
 
 /* ===== 과제5: 스마트폰에서 보기 (반응형 웹 디자인) ===== */
 @media (max-width: 786px) {
   .content-wrapper {
-    /* 세로 1열로 변경 */
+    flex-direction: column;
   }
 
   nav ul {
-    /* 바로가기 1열로 정렬 */
+    flex-direction: column;
   }
 
   .trip-grid-container {
-    /* 1열로 조정 */
+    grid-template-columns: 1fr;
   }
 }
 
 
 /* ===== 과제6: 상호작용을 반영하는 인터랙션 디자인 ===== */
-nav a:hover,
-.btn-submit:hover,
+nav a,
+.btn-submit,
+.btn-reset {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ffb703;
+}
+
+.btn-submit:hover {
+  background-color: #24594b;
+}
+
 .btn-reset:hover {
-  /* transition, 배경색/글자색 변화 */
+  background-color: #cfcac0;
+}
+
+.trip-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .trip-card:hover {
-  /* transform: translateY(), box-shadow 등 */
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-header h1 {
-  /* 로고/타이틀 강조 효과 */
+/* 타이틀이 은은하게 빛나는 효과 */
+h1 {
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 4px rgba(255, 183, 3, 0.3);
+  }
+  to {
+    text-shadow: 0 0 14px rgba(255, 183, 3, 0.8);
+  }
 }

@@ -1,7 +1,16 @@
 // 내 가방 보기
 function showMyBag() {
-  // 1) myBag 객체에 소지품명: 개수 형태의 데이터 작성
-  //    예: var myBag = { 지갑: 1, 노트북: 1, 우산: 1 };
+  var myBag = {
+    지갑: 1,
+    노트북: 1,
+    우산: 1,
+    이어폰: 2
+  };
 
-  // 2) 반복문으로 소지품 목록과 개수를 alert() 등으로 출력
+  var message = "🎒 내 가방 속 물건\n";
+  for (var item in myBag) {
+    message += item + ": " + myBag[item] + "개\n";
+  }
+
+  alert(message);
 }

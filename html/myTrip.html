@@ -17,19 +17,25 @@
     </audio>
 
     <h2>📸 여행 사진</h2>
-    <div class="trip-grid-container">
-      <p class="trip-card">
-        <img src="../media/리장.jpg" alt="리장 트레킹" width="400"><br>
-        🏞️ 리장 트레킹 (<!-- 연도 -->)
-      </p>
-      <p class="trip-card">
-        <img src="../media/세부.jpg" alt="세부 리조트" width="400"><br>
-        🏝️ 세부 리조트 (<!-- 연도 -->)
-      </p>
-      <p class="trip-card">
-        <img src="../media/홋카이도.jpg" alt="홋카이도 온천" width="400"><br>
-        ♨️ 홋카이도 온천 (<!-- 연도 -->)
-      </p>
+    <div class="trip-slider">
+      <button class="slider-btn slider-prev" onclick="moveSlide(-1)">‹</button>
+      <div class="slider-viewport">
+        <div class="slider-track" id="tripSliderTrack">
+          <p class="trip-card">
+            <img src="../media/리장.jpg" alt="리장 트레킹"><br>
+            🏞️ 리장 트레킹 (<!-- 연도 -->)
+          </p>
+          <p class="trip-card">
+            <img src="../media/세부.jpg" alt="세부 리조트"><br>
+            🏝️ 세부 리조트 (<!-- 연도 -->)
+          </p>
+          <p class="trip-card">
+            <img src="../media/홋카이도.jpg" alt="홋카이도 온천"><br>
+            ♨️ 홋카이도 온천 (<!-- 연도 -->)
+          </p>
+        </div>
+      </div>
+      <button class="slider-btn slider-next" onclick="moveSlide(1)">›</button>
     </div>
 
     <h2>🎬 여행 영상</h2>
@@ -41,5 +47,7 @@
       <br><!-- 영상 설명 -->
     </p>
     </div>
+
+    <script src="../script/tripSlider.js"></script>
   </body>
 </html>

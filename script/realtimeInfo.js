@@ -5,9 +5,25 @@ const citySelect = document.getElementById("city-select");
 const weatherBox = document.getElementById("weather-box");
 
 citySelect.addEventListener("change", async () => {
-  // 1) 선택된 도시의 위도/경도를 select의 value에서 꺼내기 (예: "37.56,126.97")
+  var value = citySelect.value;
 
-  // 2) weatherBox에 "로딩 중..." 메시지를 우선 표시 (innerHTML)
+  if (value === "none") {
+    weatherBox.innerHTML = "<p>도시를 선택하면 정보가 표시됩니다.</p>";
+    return;
+  }
 
-  // 3) fetchWeather()를 호출해 날씨 데이터를 받아온 뒤 innerHTML로 화면에 그리기
+  var [lat, lon] = value.split(","); // option value="위도,경도" 형태를 분리
+  var cityName = citySelect.options[citySelect.selectedIndex].text;
+
+  weatherBox.innerHTML = "<p>" + cityName + " 날씨를 불러오는 중...</p>";
+
+  try {
+    var weather = await fetchWeather(lat, lon);
+    weatherBox.innerHTML =
+      "<p>" + cityName + "</p>" +
+      "<p>현재 기온: " + weather.temperature + "°C</p>" +
+      "<p>풍속: " + weather.windspeed + "m/s</p>";
+  } catch (error) {
+    weatherBox.innerHTML = "<p>날씨 정보를 불러오지 못했습니다.</p>";
+  }
 });
