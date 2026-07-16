@@ -2,6 +2,11 @@
 var locationBox = document.getElementById("location-box");
 
 function refreshLocation() {
+  // TODO: 기기/브라우저 위치 서비스 문제로 임시로 대한민국 고정 표시 중.
+  // 나중에 해결되면 아래 return 두 줄만 지우면 실제 geolocation 코드가 다시 동작함.
+  locationBox.innerHTML = "<p>🇰🇷 대한민국</p>";
+  return;
+
   if (!navigator.geolocation) {
     locationBox.innerHTML = "<p>이 브라우저는 위치 정보를 지원하지 않습니다.</p>";
     return;
