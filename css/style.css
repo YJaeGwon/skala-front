@@ -207,6 +207,26 @@ nav ul {
   flex: 2;
 }
 
+.encyclopedia {
+  margin-top: 20px;
+}
+
+#wiki-result:not(:empty) {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.wiki-thumb {
+  max-width: 140px;
+  border-radius: 8px;
+  float: right;
+  margin: 0 0 8px 12px;
+}
+
 .content-wrapper aside {
   flex: 1;
   background-color: var(--card-bg);
@@ -325,6 +345,11 @@ nav ul {
 
 .game-controls input {
   width: 90px;
+}
+
+#wiki-input {
+  flex: 1 1 240px;
+  width: auto;
 }
 
 .play-btn {

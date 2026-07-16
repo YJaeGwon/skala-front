@@ -39,6 +39,7 @@
             <li>SKALA 입과</li>
             <li>📍 실시간 위치 정보 위젯을 추가했습니다.</li>
             <li>✂️ 가위바위보 게임을 추가했습니다.</li>
+            <li>📖 백과사전 검색 기능을 추가했습니다.</li>
           </ul>
         </section>
 
@@ -71,6 +72,15 @@
               <p>로그인은 상단에서</p>
             </a>
           </div>
+        </section>
+
+        <section class="encyclopedia">
+          <h3>📖 백과사전 검색</h3>
+          <div class="game-controls">
+            <input type="text" id="wiki-input" placeholder="검색어 입력 (예: 인공지능)">
+            <button class="play-btn" onclick="searchWiki()">검색</button>
+          </div>
+          <div id="wiki-result"></div>
         </section>
       </main>
 
@@ -166,6 +176,7 @@
     <script src="../script/bag.js"></script>
     <script src="../script/rps.js"></script>
     <script src="../script/location.js"></script>
+    <script src="../script/encyclopedia.js"></script>
     <script type="module" src="../script/realtimeInfo.js"></script>
   </body>
 </html>
