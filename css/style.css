@@ -1,32 +1,65 @@
 /* 구글 폰트 (Gowun Dodum) - HTML에 <link> 없이 CSS에서 바로 불러옴 */
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
+/* ===== 다크모드: 색상을 변수로 관리하고 [data-theme]로 전환 ===== */
+:root {
+  --bg-color: #f6f4ef;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --border-color: #e0ddd4;
+  --border-strong: #cfcac0;
+  --heading-color: #2f6f5e;
+  --accent-color: #ffb703;
+  --brand-color: #2f6f5e;
+  --brand-hover: #24594b;
+  --btn-reset-bg: #e0ddd4;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1b1f1e;
+  --text-color: #e7e5e0;
+  --card-bg: #262b29;
+  --border-color: #3c433f;
+  --border-strong: #4a534d;
+  --heading-color: #6fcfae;
+  --accent-color: #ffcf4d;
+  --brand-color: #3d8a72;
+  --brand-hover: #56a88c;
+  --btn-reset-bg: #3c433f;
+}
+
 /* ===== 과제1: 전체 테마 및 텍스트 Styling ===== */
 body {
   font-family: 'Gowun Dodum', sans-serif;
-  background-color: #f6f4ef;
-  color: #333333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2 {
-  color: #2f6f5e;
+  color: var(--heading-color);
   padding: 8px 4px;
-  border-bottom: 3px solid #ffb703;
+  border-bottom: 3px solid var(--accent-color);
 }
 
 a {
-  color: #2f6f5e;
+  color: var(--heading-color);
   text-decoration: none;
 }
 
-.home-btn {
+.home-btn,
+.theme-toggle {
   display: inline-block;
   margin-bottom: 12px;
   padding: 4px 14px;
-  background-color: #2f6f5e;
+  background-color: var(--brand-color);
   color: #ffffff;
+  border: none;
   border-radius: 6px;
   text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
 }
 
 
@@ -39,8 +72,8 @@ a {
 
 .trip-card {
   box-sizing: border-box;
-  background-color: #ffffff;
-  border: 1px solid #e0ddd4;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 12px;
   margin: 10px;
@@ -48,7 +81,7 @@ a {
 }
 
 table, th, td {
-  border: 1px solid #cfcac0;
+  border: 1px solid var(--border-strong);
   border-collapse: collapse;
   padding: 8px 12px;
   text-align: center;
@@ -59,7 +92,7 @@ table, th, td {
   border: none;
   padding: 0;
   font: inherit;
-  color: #2f6f5e;
+  color: var(--heading-color);
   text-decoration: underline dotted;
   cursor: pointer;
 }
@@ -67,8 +100,8 @@ table, th, td {
 .week-detail {
   margin-top: 16px;
   padding: 12px;
-  background-color: #ffffff;
-  border: 1px solid #e0ddd4;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
 }
 
@@ -78,8 +111,10 @@ input, textarea, select {
   width: 260px;
   box-sizing: border-box;
   padding: 6px 8px;
-  border: 1px solid #cfcac0;
+  border: 1px solid var(--border-strong);
   border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
 }
 
 /* 라디오/체크박스는 위 규칙(260px 폭)에서 제외하고 간격만 좁게 조정 */
@@ -92,7 +127,7 @@ input[type="checkbox"] {
 }
 
 fieldset {
-  border: 1px solid #e0ddd4;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 16px;
@@ -107,13 +142,13 @@ fieldset {
 }
 
 .btn-submit {
-  background-color: #2f6f5e;
+  background-color: var(--brand-color);
   color: #ffffff;
 }
 
 .btn-reset {
-  background-color: #e0ddd4;
-  color: #333333;
+  background-color: var(--btn-reset-bg);
+  color: var(--text-color);
 }
 
 
@@ -137,7 +172,7 @@ nav ul {
 
 .content-wrapper aside {
   flex: 1;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-radius: 10px;
   padding: 16px;
 }
@@ -184,7 +219,7 @@ nav ul {
   height: 36px;
   border: none;
   border-radius: 50%;
-  background-color: #2f6f5e;
+  background-color: var(--brand-color);
   color: #ffffff;
   font-size: 20px;
   line-height: 1;
@@ -205,6 +240,10 @@ nav ul {
   .trip-grid-container {
     grid-template-columns: 1fr;
   }
+
+  .trip-slider {
+    max-width: 100%;
+  }
 }
 
 
@@ -216,23 +255,24 @@ nav a,
 }
 
 nav a:hover {
-  color: #ffb703;
+  color: var(--accent-color);
 }
 
 .btn-submit:hover {
-  background-color: #24594b;
+  background-color: var(--brand-hover);
 }
 
 .btn-reset:hover {
-  background-color: #cfcac0;
+  background-color: var(--border-strong);
 }
 
-.home-btn:hover {
-  background-color: #24594b;
+.home-btn:hover,
+.theme-toggle:hover {
+  background-color: var(--brand-hover);
 }
 
 .week-link:hover {
-  color: #ffb703;
+  color: var(--accent-color);
 }
 
 .trip-card {

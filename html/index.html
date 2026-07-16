@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 개인 포털</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    </script>
   </head>
   <body>
     <div class="container">
+    <p><button id="theme-toggle" class="theme-toggle" onclick="toggleDarkMode()">🌙 다크모드</button></p>
     <h1>🏠 나의 개인 포털</h1>
 
     <nav>
@@ -74,6 +78,7 @@
     </div>
     </div>
 
+    <script src="../script/darkMode.js"></script>
     <script src="../script/upDown.js"></script>
     <script src="../script/grade.js"></script>
     <script src="../script/bag.js"></script>
