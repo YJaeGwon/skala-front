@@ -71,6 +71,47 @@ a {
   margin-bottom: 12px;
 }
 
+.topbar-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.font-size-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.font-size-btn {
+  padding: 4px 10px;
+  font-size: 0.85em;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.font-size-btn:hover {
+  background-color: var(--border-color);
+}
+
+#font-size-label {
+  padding: 0 8px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--heading-color);
+  min-width: 34px;
+  text-align: center;
+  border-left: 1px solid var(--border-strong);
+  border-right: 1px solid var(--border-strong);
+}
+
 .auth-area {
   display: flex;
   align-items: center;
@@ -205,6 +246,66 @@ nav ul {
 
 .content-wrapper main {
   flex: 2;
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 20px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  z-index: 1;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 16px;
+  bottom: -20px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+.timeline-time {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--heading-color);
+  margin: 0 0 6px;
+}
+
+.timeline-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-content p {
+  margin: 0;
+}
+
+.timeline-content:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .encyclopedia {

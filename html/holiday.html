@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+      document.documentElement.style.fontSize =
+        (Number(localStorage.getItem("fontScale")) || 1) * 100 + "%";
     </script>
   </head>
   <body>
@@ -14,52 +16,76 @@
     <p><a href="index.html" class="home-btn">🏠 홈으로</a></p>
     <h1>🌴 나의 휴일 일과</h1>
 
-    <h2>😴 10:00</h2>
-    <p>
-      늦잠 자고 일어나서 아침 먹기<br>
-      <mark>늦잠</mark>은 휴일의 특권!
-    </p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-time">😴 10:00</p>
+        <div class="timeline-content">
+          <p>
+            늦잠 자고 일어나서 아침 먹기<br>
+            <mark>늦잠</mark>은 휴일의 특권!
+          </p>
+        </div>
+      </div>
 
-    <h2>🚶 11:00</h2>
-    <p>
-      가볍게 산책하기
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🚶 11:00</p>
+        <div class="timeline-content">
+          <p>가볍게 산책하기</p>
+        </div>
+      </div>
 
-    <h2>🍳 12:00</h2>
-    <p>
-      점심 메뉴를 고르고 식사 준비
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🍳 12:00</p>
+        <div class="timeline-content">
+          <p>점심 메뉴를 고르고 식사 준비</p>
+        </div>
+      </div>
 
-    <h2>🍽️ 13:00</h2>
-    <p>
-      친구를 만나서 점심먹기<br>
-      특히 <mark>맛있는 점심을 먹는 시간</mark>이 가장 행복함
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🍽️ 13:00</p>
+        <div class="timeline-content">
+          <p>
+            친구를 만나서 점심먹기<br>
+            특히 <mark>맛있는 점심을 먹는 시간</mark>이 가장 행복함
+          </p>
+        </div>
+      </div>
 
-    <h2>🎮 14:00~16:00</h2>
-    <p>
-      좋아하는 게임을 하며 휴식!
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🎮 14:00~16:00</p>
+        <div class="timeline-content">
+          <p>좋아하는 게임을 하며 휴식!</p>
+        </div>
+      </div>
 
-    <h2>🧹 17:00</h2>
-    <p>
-      저녁 시간을 위해 가볍게 정리하고 준비
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🧹 17:00</p>
+        <div class="timeline-content">
+          <p>저녁 시간을 위해 가볍게 정리하고 준비</p>
+        </div>
+      </div>
 
-    <h2>🍚 18:00</h2>
-    <p>
-      저녁식사
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🍚 18:00</p>
+        <div class="timeline-content">
+          <p>저녁식사</p>
+        </div>
+      </div>
 
-    <h2>🎬 19:00~22:00</h2>
-    <p>
-      영화감상
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🎬 19:00~22:00</p>
+        <div class="timeline-content">
+          <p>영화감상</p>
+        </div>
+      </div>
 
-    <h2>🌙 22:00~</h2>
-    <p>
-      하루의 마무리
-    </p>
+      <div class="timeline-item">
+        <p class="timeline-time">🌙 22:00~</p>
+        <div class="timeline-content">
+          <p>하루의 마무리</p>
+        </div>
+      </div>
+    </div>
     </div>
   </body>
 </html>
