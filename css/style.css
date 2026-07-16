@@ -1,0 +1,86 @@
+/* ===== 과제1: 전체 테마 및 텍스트 Styling ===== */
+body {
+  /* font-family(구글 폰트), background-color 등 */
+}
+
+h1, h2 {
+  /* color, font-size, padding, border 등 */
+}
+
+a {
+  /* color, text-decoration 등 */
+}
+
+
+/* ===== 과제2: 박스 모델의 이해 ===== */
+.container {
+  /* 가운데 정렬: max-width, margin: 0 auto 등 */
+}
+
+.trip-card {
+  /* background, border, padding, margin 등 */
+}
+
+table, th, td {
+  /* border, padding 등 */
+}
+
+
+/* ===== 과제3: 가독성 높은 회원가입 화면 ===== */
+input, textarea, select {
+  /* width 통일 */
+}
+
+fieldset {
+  /* border, border-radius 등 */
+}
+
+.btn-submit, .btn-reset {
+  /* 버튼 배경색, padding, border 등 */
+}
+
+
+/* ===== 과제4: Flex와 Grid로 레이아웃 정리하기 ===== */
+nav ul {
+  /* display: flex 등으로 바로가기 가로 배치 */
+}
+
+.content-wrapper {
+  /* display: flex 등으로 main과 aside 가로 배치 */
+}
+
+.trip-grid-container {
+  /* display: grid, grid-template-columns 등으로 3열 배치 */
+}
+
+
+/* ===== 과제5: 스마트폰에서 보기 (반응형 웹 디자인) ===== */
+@media (max-width: 786px) {
+  .content-wrapper {
+    /* 세로 1열로 변경 */
+  }
+
+  nav ul {
+    /* 바로가기 1열로 정렬 */
+  }
+
+  .trip-grid-container {
+    /* 1열로 조정 */
+  }
+}
+
+
+/* ===== 과제6: 상호작용을 반영하는 인터랙션 디자인 ===== */
+nav a:hover,
+.btn-submit:hover,
+.btn-reset:hover {
+  /* transition, 배경색/글자색 변화 */
+}
+
+.trip-card:hover {
+  /* transform: translateY(), box-shadow 등 */
+}
+
+header h1 {
+  /* 로고/타이틀 강조 효과 */
+}
