@@ -11,7 +11,10 @@
   </head>
   <body>
     <div class="container">
-    <p><button id="theme-toggle" class="theme-toggle" onclick="toggleDarkMode()">🌙 다크모드</button></p>
+    <div class="topbar">
+      <button id="theme-toggle" class="theme-toggle" onclick="toggleDarkMode()">🌙 다크모드</button>
+      <div id="auth-area" class="auth-area"></div>
+    </div>
     <h1>🏠 나의 개인 포털</h1>
 
     <nav>
@@ -65,7 +68,7 @@
             <a class="quick-link-card" href="signUp.html">
               <span class="quick-link-icon">📝</span>
               <strong>회원가입</strong>
-              <p>회원가입 폼 체험하기</p>
+              <p>로그인은 상단에서</p>
             </a>
           </div>
         </section>
@@ -81,6 +84,7 @@
           <div id="location-box">
             <p>위치 정보를 불러오는 중...</p>
           </div>
+          <button class="play-btn" onclick="refreshLocation()">🔄 새로고침</button>
         </section>
 
         <section>
@@ -100,17 +104,61 @@
         </section>
 
         <section class="game-area">
-          <h3>🎮 자바스크립트 놀이터</h3>
-          <button class="play-btn" onclick="startGame()">🔢<br>업다운 게임</button>
-          <button class="play-btn" onclick="checkGrade()">🧮<br>성적 계산기</button>
-          <button class="play-btn" onclick="showMyBag()">🎒<br>내 가방 보기</button>
-          <button class="play-btn" onclick="playRockPaperScissors()">✂️<br>가위바위보</button>
+          <h3>
+            🎮 자바스크립트 놀이터
+            <button id="game-toggle" class="section-toggle" onclick="toggleGameArea()">▼ 접기</button>
+          </h3>
+
+          <div id="game-content">
+            <div class="game-panel">
+              <p class="game-title">🔢 업다운 게임</p>
+              <p id="updown-message">1~50 사이의 숫자를 맞혀보세요!</p>
+              <div class="game-controls">
+                <input type="number" id="updown-input" min="1" max="50" placeholder="숫자 입력">
+                <button class="play-btn" onclick="checkGuess()">확인</button>
+                <button class="play-btn" onclick="resetGame()">다시 시작</button>
+              </div>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">🧮 성적 계산기</p>
+              <p id="grade-subject-label">HTML 점수를 입력하세요.</p>
+              <div class="game-controls">
+                <input type="number" id="grade-input" min="0" max="100" placeholder="점수 입력">
+                <button class="play-btn" onclick="submitScore()">입력</button>
+                <button class="play-btn" onclick="resetGrade()">다시 시작</button>
+              </div>
+              <p id="grade-result"></p>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">🎒 내 가방 보기</p>
+              <div class="game-controls">
+                <input type="text" id="bag-item-input" placeholder="물건 이름">
+                <input type="number" id="bag-qty-input" min="1" value="1" placeholder="개수">
+                <button class="play-btn" onclick="addToBag()">담기</button>
+              </div>
+              <ul id="bag-list"></ul>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">✂️ 가위바위보</p>
+              <div class="game-controls">
+                <button class="play-btn" onclick="playRockPaperScissors('가위')">✌️ 가위</button>
+                <button class="play-btn" onclick="playRockPaperScissors('바위')">✊ 바위</button>
+                <button class="play-btn" onclick="playRockPaperScissors('보')">✋ 보</button>
+              </div>
+              <p id="rps-result"></p>
+            </div>
+          </div>
         </section>
       </aside>
     </div>
     </div>
 
     <script src="../script/darkMode.js"></script>
+    <script src="../script/auth.js"></script>
+    <script src="../script/uiToggles.js"></script>
     <script src="../script/visitCount.js"></script>
     <script src="../script/upDown.js"></script>
     <script src="../script/grade.js"></script>

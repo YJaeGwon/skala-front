@@ -14,16 +14,16 @@
     <p><a href="index.html" class="home-btn">🏠 홈으로</a></p>
     <h1>📝 회원가입</h1>
 
-    <form action="signUpResult.html" method="get">
+    <form id="signup-form" action="signUpResult.html" method="get">
       <fieldset>
         <legend>👤 계정 정보</legend>
         <p>
           <label for="userId">아이디: </label>
-          <input type="text" id="userId" name="userId" placeholder="4~15자 영문/숫자" required>
+          <input type="text" id="userId" name="userId" placeholder="4~15자 영문/숫자" autocomplete="username" required>
         </p>
         <p>
           <label for="userPw">비밀번호: </label>
-          <input type="password" id="userPw" name="userPw" placeholder="8자 이상 입력" required>
+          <input type="password" id="userPw" name="userPw" placeholder="8자 이상 입력" autocomplete="new-password" required>
         </p>
         <p>
           <label for="userEmail">이메일: </label>
@@ -82,5 +82,7 @@
       </p>
     </form>
     </div>
+
+    <script src="../script/auth.js"></script>
   </body>
 </html>

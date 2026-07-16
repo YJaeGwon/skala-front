@@ -1,22 +1,34 @@
-// 업다운 숫자 맞추기 게임
-function startGame() {
-  var computerNum = Math.floor(Math.random() * 50) + 1; // 1~50 난수 생성
-  var tries = 0;
+// 업다운 숫자 맞추기 게임 (DOM 버전)
+var computerNum = Math.floor(Math.random() * 50) + 1; // 1~50 난수 생성
+var tries = 0;
 
-  while (true) {
-    var input = prompt("1~50 사이의 숫자를 맞혀보세요!");
-    if (input === null) return; // 취소 시 게임 종료
+var updownMessage = document.getElementById("updown-message");
+var updownInput = document.getElementById("updown-input");
 
-    var guess = Number(input);
-    tries++;
+function checkGuess() {
+  var guess = Number(updownInput.value);
 
-    if (guess > computerNum) {
-      alert("Down!");
-    } else if (guess < computerNum) {
-      alert("Up!");
-    } else {
-      alert("축하합니다! " + tries + "번 만에 맞추셨습니다.");
-      break;
-    }
+  if (updownInput.value === "" || guess < 1 || guess > 50) {
+    updownMessage.textContent = "1~50 사이의 숫자를 입력해주세요.";
+    return;
   }
+
+  tries++;
+
+  if (guess > computerNum) {
+    updownMessage.textContent = "⬇️ Down! 더 작은 숫자를 입력해보세요.";
+  } else if (guess < computerNum) {
+    updownMessage.textContent = "⬆️ Up! 더 큰 숫자를 입력해보세요.";
+  } else {
+    updownMessage.textContent = "🎉 축하합니다! " + tries + "번 만에 맞추셨습니다.";
+  }
+
+  updownInput.value = "";
+}
+
+function resetGame() {
+  computerNum = Math.floor(Math.random() * 50) + 1;
+  tries = 0;
+  updownMessage.textContent = "1~50 사이의 숫자를 맞혀보세요!";
+  updownInput.value = "";
 }

@@ -62,6 +62,43 @@ a {
   font-size: 1em;
 }
 
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.auth-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-input {
+  width: 120px;
+}
+
+.welcome-message {
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+.section-toggle {
+  margin-left: 8px;
+  padding: 2px 10px;
+  font-size: 0.7em;
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: inherit;
+  vertical-align: middle;
+}
+
 
 /* ===== 과제2: 박스 모델의 이해 ===== */
 .container {
@@ -216,26 +253,88 @@ nav ul {
   font-size: 0.85em;
 }
 
-.game-area {
+.game-area h3 {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
 }
 
-.game-area h3 {
-  width: 100%;
+.game-area {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#game-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#game-content[hidden] {
+  display: none;
+}
+
+#bag-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+#bag-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bag-remove-btn {
+  padding: 2px 8px;
+  font-size: 0.8em;
+  background-color: var(--btn-reset-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.bag-remove-btn:hover {
+  background-color: var(--border-strong);
+}
+
+.game-panel {
+  padding: 10px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.game-title {
+  margin: 0 0 6px;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.game-controls input {
+  width: 90px;
 }
 
 .play-btn {
-  flex: 1 1 calc(50% - 10px);
-  padding: 14px 8px;
-  font-size: 1em;
+  padding: 8px 14px;
+  font-size: 0.95em;
   font-weight: bold;
-  line-height: 1.6;
   background-color: var(--brand-color);
   color: #ffffff;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-family: inherit;
   transition: transform 0.2s ease, background-color 0.2s ease;

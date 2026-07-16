@@ -21,8 +21,9 @@ citySelect.addEventListener("change", async () => {
     var weather = await fetchWeather(lat, lon);
     weatherBox.innerHTML =
       "<p>" + cityName + "</p>" +
-      "<p>현재 기온: " + weather.temperature + "°C</p>" +
-      "<p>풍속: " + weather.windspeed + "m/s</p>";
+      "<p>현재 기온: " + weather.temperature_2m + "°C</p>" +
+      "<p>💧 습도: " + weather.relative_humidity_2m + "%</p>" +
+      "<p>풍속: " + weather.wind_speed_10m + "m/s</p>";
   } catch (error) {
     weatherBox.innerHTML = "<p>날씨 정보를 불러오지 못했습니다.</p>";
   }
