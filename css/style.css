@@ -451,6 +451,20 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
+.result-flash {
+  animation: resultFlash 0.5s ease;
+  border-radius: 6px;
+}
+
+@keyframes resultFlash {
+  from {
+    background-color: var(--accent-color);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
 /* 타이틀이 은은하게 빛나는 효과 */
 h1 {
   animation: glow 2.5s ease-in-out infinite alternate;
