@@ -8,9 +8,19 @@ if (navigator.geolocation) {
       var lon = position.coords.longitude.toFixed(4);
       locationBox.innerHTML = "<p>위도: " + lat + ", 경도: " + lon + "</p>";
     },
-    () => {
-      locationBox.innerHTML = "<p>위치 정보를 가져올 수 없습니다. (권한을 허용했는지 확인해주세요)</p>";
-    }
+    (error) => {
+      var message = "위치 정보를 가져올 수 없습니다.";
+      if (error.code === error.PERMISSION_DENIED) {
+        message = "위치 정보 권한이 거부되었습니다.";
+      } else if (error.code === error.POSITION_UNAVAILABLE) {
+        message = "위치 정보를 사용할 수 없습니다.";
+      } else if (error.code === error.TIMEOUT) {
+        message = "위치 정보를 가져오는 데 시간이 너무 오래 걸립니다.";
+      }
+      console.error("Geolocation error:", error);
+      locationBox.innerHTML = "<p>" + message + "</p>";
+    },
+    { timeout: 10000 }
   );
 } else {
   locationBox.innerHTML = "<p>이 브라우저는 위치 정보를 지원하지 않습니다.</p>";

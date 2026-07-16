@@ -183,6 +183,64 @@ nav ul {
   gap: 16px;
 }
 
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.quick-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 8px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-link-icon {
+  font-size: 28px;
+}
+
+.quick-link-card strong {
+  color: var(--heading-color);
+}
+
+.quick-link-card p {
+  margin: 0;
+  font-size: 0.85em;
+}
+
+.game-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-area h3 {
+  width: 100%;
+}
+
+.play-btn {
+  flex: 1 1 calc(50% - 10px);
+  padding: 14px 8px;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.6;
+  background-color: var(--brand-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
 /* 여행 사진 슬라이더 - 사진이 커도 페이지가 아닌 슬라이더 내부에서만 넘어감 */
 .trip-slider {
   display: flex;
@@ -282,6 +340,16 @@ nav a:hover {
 .trip-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.quick-link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.play-btn:hover {
+  background-color: var(--brand-hover);
+  transform: translateY(-2px);
 }
 
 /* 타이틀이 은은하게 빛나는 효과 */
