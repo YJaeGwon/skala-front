@@ -424,6 +424,46 @@ nav ul {
   background-color: var(--border-strong);
 }
 
+.lotto-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.lotto-ball {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.lotto-yellow {
+  background-color: #fbc400;
+}
+
+.lotto-blue {
+  background-color: #69c8f2;
+}
+
+.lotto-red {
+  background-color: #ff7272;
+}
+
+.lotto-gray {
+  background-color: #aaaaaa;
+}
+
+.lotto-green {
+  background-color: #b0d840;
+}
+
 .game-panel {
   padding: 10px;
   background-color: var(--bg-color);

@@ -50,6 +50,7 @@
             <li>✂️ 가위바위보 게임을 추가했습니다.</li>
             <li>📖 백과사전 검색 기능을 추가했습니다.</li>
             <li>🕐 현재 시간 표시와 글자 크기 조절 기능을 추가했습니다.</li>
+            <li>🎱 로또 번호 생성기와 ⚖️ BMI 계산기를 추가했습니다.</li>
           </ul>
         </section>
 
@@ -172,6 +173,22 @@
               <p id="rps-result"></p>
               <p id="rps-streak"></p>
             </div>
+
+            <div class="game-panel">
+              <p class="game-title">🎱 로또 번호 생성기</p>
+              <button class="play-btn" onclick="generateLotto()">번호 뽑기</button>
+              <div id="lotto-result" class="lotto-numbers"></div>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">⚖️ BMI 계산기</p>
+              <div class="game-controls">
+                <input type="number" id="bmi-height" placeholder="키(cm)">
+                <input type="number" id="bmi-weight" placeholder="몸무게(kg)">
+                <button class="play-btn" onclick="calculateBMI()">계산</button>
+              </div>
+              <p id="bmi-result"></p>
+            </div>
           </div>
         </section>
       </aside>
@@ -188,6 +205,8 @@
     <script src="../script/grade.js"></script>
     <script src="../script/bag.js"></script>
     <script src="../script/rps.js"></script>
+    <script src="../script/lotto.js"></script>
+    <script src="../script/bmi.js"></script>
     <script src="../script/location.js"></script>
     <script src="../script/encyclopedia.js"></script>
     <script type="module" src="../script/realtimeInfo.js"></script>
