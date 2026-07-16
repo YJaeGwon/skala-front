@@ -8,8 +8,9 @@
   </head>
   <body>
     <div class="container">
+    <p><a href="index.html" class="home-btn">🏠 홈으로</a></p>
     <h1>📚 나의 수업 시간표</h1>
-    <p>SKALA 교육과정 전체 일정(2026-07 ~ 2026-12)을 월 단위로 정리했습니다.</p>
+    <p>SKALA 교육과정 전체 일정(2026-07 ~ 2026-12)을 월 단위로 정리했습니다. 주요 학습 내용을 클릭하면 그 주의 요일별 시간표를 볼 수 있어요.</p>
 
     <table border="1">
       <thead>
@@ -25,125 +26,144 @@
           <td rowspan="3">7월</td>
           <td>1주차</td>
           <td>07/15 ~ 07/16</td>
-          <td>HTML, CSS, JavaScript</td>
+          <td><button class="week-link" onclick="showWeekDetail(1)">HTML, CSS, JavaScript</button></td>
         </tr>
         <tr>
           <td>2주차</td>
           <td>07/20 ~ 07/24</td>
-          <td>Python 데이터 분석 이해 / 스마트 데이터 이해 및 활용</td>
+          <td><button class="week-link" onclick="showWeekDetail(2)">Python 데이터 분석 이해 / 스마트 데이터 이해 및 활용</button></td>
         </tr>
         <tr>
           <td>3주차</td>
           <td>07/27 ~ 07/31</td>
-          <td>데이터 분석 기초통계 / Prompt 설계 / LLM·Transformer 아키텍처</td>
+          <td><button class="week-link" onclick="showWeekDetail(3)">데이터 분석 기초통계 / Prompt 설계 / LLM·Transformer 아키텍처</button></td>
         </tr>
 
         <tr>
           <td rowspan="5">8월</td>
           <td>4주차</td>
           <td>08/03 ~ 08/07</td>
-          <td>Java, SpringBoot, REST API 구현</td>
+          <td><button class="week-link" onclick="showWeekDetail(4)">Java, SpringBoot, REST API 구현</button></td>
         </tr>
         <tr>
           <td>5주차</td>
           <td>08/10 ~ 08/14</td>
-          <td>Agile·MSA 개발 / sLLM Fine-Tuning / Feature Engineering</td>
+          <td><button class="week-link" onclick="showWeekDetail(5)">Agile·MSA 개발 / sLLM Fine-Tuning / Feature Engineering</button></td>
         </tr>
         <tr>
           <td>6주차</td>
           <td>08/18 ~ 08/21</td>
-          <td>Front-framework: Vue.js</td>
+          <td><button class="week-link" onclick="showWeekDetail(6)">Front-framework: Vue.js</button></td>
         </tr>
         <tr>
           <td>7주차</td>
           <td>08/24 ~ 08/29</td>
-          <td>컨테이너·쿠버네티스 이해 및 배포 / 취업특강</td>
+          <td><button class="week-link" onclick="showWeekDetail(7)">컨테이너·쿠버네티스 이해 및 배포 / 취업특강</button></td>
         </tr>
         <tr>
           <td>8주차</td>
           <td>08/31 ~ 09/04</td>
-          <td>Spring AI / 웹 서비스 개발 mini-Project</td>
+          <td><button class="week-link" onclick="showWeekDetail(8)">Spring AI / 웹 서비스 개발 mini-Project</button></td>
         </tr>
 
         <tr>
           <td rowspan="3">9월</td>
           <td>9주차</td>
           <td>09/07 ~ 09/11</td>
-          <td>메시지큐 및 데이터 이해 / 모델 개발 및 최적화</td>
+          <td><button class="week-link" onclick="showWeekDetail(9)">메시지큐 및 데이터 이해 / 모델 개발 및 최적화</button></td>
         </tr>
         <tr>
           <td>10주차</td>
           <td>09/14 ~ 09/18</td>
-          <td>컨테이너 실무 심화 / 도메인 특강 / 생성형 AI(LangChain)</td>
+          <td><button class="week-link" onclick="showWeekDetail(10)">컨테이너 실무 심화 / 도메인 특강 / 생성형 AI(LangChain)</button></td>
         </tr>
         <tr>
           <td>11주차</td>
           <td>09/21 ~ 09/22</td>
-          <td>생성형 AI 서비스 개발(LangChain)</td>
+          <td><button class="week-link" onclick="showWeekDetail(11)">생성형 AI 서비스 개발(LangChain)</button></td>
         </tr>
 
         <tr>
           <td rowspan="5">10월</td>
           <td>12주차</td>
           <td>09/28 ~ 10/02</td>
-          <td>RAG Pipeline 설계 및 구축 / 데이터 분석 mini-Project</td>
+          <td><button class="week-link" onclick="showWeekDetail(12)">RAG Pipeline 설계 및 구축 / 데이터 분석 mini-Project</button></td>
         </tr>
         <tr>
           <td>13주차</td>
           <td>10/06 ~ 10/08</td>
-          <td>모델 서빙 및 AIOps 구성</td>
+          <td><button class="week-link" onclick="showWeekDetail(13)">모델 서빙 및 AIOps 구성</button></td>
         </tr>
         <tr>
           <td>14주차</td>
           <td>10/12 ~ 10/16</td>
-          <td>AI Agent 설계 및 구축 / Vector DB / AI Agent Capstone</td>
+          <td><button class="week-link" onclick="showWeekDetail(14)">AI Agent 설계 및 구축 / Vector DB / AI Agent Capstone</button></td>
         </tr>
         <tr>
           <td>15주차</td>
           <td>10/19 ~ 10/23</td>
-          <td>AI Agent Capstone / AI 서비스 개발 Mini-project / DevOps</td>
+          <td><button class="week-link" onclick="showWeekDetail(15)">AI Agent Capstone / AI 서비스 개발 Mini-project / DevOps</button></td>
         </tr>
         <tr>
           <td>16주차</td>
           <td>10/26 ~ 10/30</td>
-          <td>DevOps / AI 프로젝트 방법론 / 팀프로젝트 시작</td>
+          <td><button class="week-link" onclick="showWeekDetail(16)">DevOps / AI 프로젝트 방법론 / 팀프로젝트 시작</button></td>
         </tr>
 
         <tr>
           <td rowspan="4">11월</td>
           <td>17주차</td>
           <td>11/02 ~ 11/06</td>
-          <td>팀프로젝트</td>
+          <td><button class="week-link" onclick="showWeekDetail(17)">팀프로젝트</button></td>
         </tr>
         <tr>
           <td>18주차</td>
           <td>11/09 ~ 11/13</td>
-          <td>팀프로젝트 (11/12 중간점검)</td>
+          <td><button class="week-link" onclick="showWeekDetail(18)">팀프로젝트 (11/12 중간점검)</button></td>
         </tr>
         <tr>
           <td>19주차</td>
           <td>11/16 ~ 11/20</td>
-          <td>팀프로젝트</td>
+          <td><button class="week-link" onclick="showWeekDetail(19)">팀프로젝트</button></td>
         </tr>
         <tr>
           <td>20주차</td>
           <td>11/23 ~ 11/27</td>
-          <td>팀프로젝트</td>
+          <td><button class="week-link" onclick="showWeekDetail(20)">팀프로젝트</button></td>
         </tr>
 
         <tr>
           <td rowspan="2">12월</td>
           <td>21주차</td>
           <td>11/30 ~ 12/04</td>
-          <td>팀프로젝트</td>
+          <td><button class="week-link" onclick="showWeekDetail(21)">팀프로젝트</button></td>
         </tr>
         <tr>
           <td>22주차</td>
           <td>12/07 ~ 12/11</td>
-          <td>팀프로젝트 / 최종발표(예선·본선) / 수료식 🎓</td>
+          <td><button class="week-link" onclick="showWeekDetail(22)">팀프로젝트 / 최종발표(예선·본선) / 수료식 🎓</button></td>
         </tr>
       </tbody>
     </table>
+
+    <div id="week-detail" class="week-detail" hidden>
+      <h3 id="week-detail-title"></h3>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>시간</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+          </tr>
+        </thead>
+        <tbody id="week-detail-body"></tbody>
+      </table>
     </div>
+    </div>
+
+    <script src="../script/classSchedule.js"></script>
   </body>
 </html>
