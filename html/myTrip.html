@@ -28,32 +28,61 @@
       <div class="slider-viewport">
         <div class="slider-track" id="tripSliderTrack">
           <p class="trip-card">
-            <img src="../media/리장.jpg" alt="리장 트레킹"><br>
-            🏞️ 리장 트레킹 (<!-- 연도 -->)
+            <img src="../media/도쿄.jpg" alt="도쿄"><br>
+            🗼 도쿄 (<!-- 연도 -->)
           </p>
           <p class="trip-card">
-            <img src="../media/세부.jpg" alt="세부 리조트"><br>
-            🏝️ 세부 리조트 (<!-- 연도 -->)
+            <img src="../media/오사카.jpg" alt="오사카"><br>
+            🏙️ 오사카 (<!-- 연도 -->)
           </p>
           <p class="trip-card">
-            <img src="../media/홋카이도.jpg" alt="홋카이도 온천"><br>
-            ♨️ 홋카이도 온천 (<!-- 연도 -->)
+            <img src="../media/오사카성.jpg" alt="오사카성"><br>
+            🏯 오사카성 (<!-- 연도 -->)
+          </p>
+          <p class="trip-card">
+            <img src="../media/후쿠오카 오미쿠지.jpg" alt="후쿠오카 오미쿠지"><br>
+            🎋 후쿠오카 오미쿠지 (<!-- 연도 -->)
           </p>
         </div>
       </div>
       <button class="slider-btn slider-next" onclick="moveSlide(1)">›</button>
     </div>
 
+    <h2>🍽️ 여행 중 먹은 음식</h2>
+    <div class="food-gallery">
+      <p class="trip-card">
+        <img src="../media/회.jpg" alt="회" onclick="openLightbox(this.src, this.alt)"><br>
+        🐟 회
+      </p>
+      <p class="trip-card">
+        <img src="../media/규카츠.jpg" alt="규카츠" onclick="openLightbox(this.src, this.alt)"><br>
+        🍱 규카츠
+      </p>
+      <p class="trip-card">
+        <img src="../media/돈카츠.jpg" alt="돈카츠" onclick="openLightbox(this.src, this.alt)"><br>
+        🍖 돈카츠
+      </p>
+      <p class="trip-card">
+        <img src="../media/우동.jpg" alt="우동" onclick="openLightbox(this.src, this.alt)"><br>
+        🍜 우동
+      </p>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+
     <h2>🎬 여행 영상</h2>
     <p>
       <video controls width="400">
-        <source src="../media/video.mp4" type="video/mp4">
+        <source src="../media/airplane.mp4" type="video/mp4">
         브라우저가 video 태그를 지원하지 않습니다.
       </video>
-      <br><!-- 영상 설명 -->
+      <br>설레는 '여행의 시작'
     </p>
     </div>
 
     <script src="../script/tripSlider.js"></script>
+    <script src="../script/lightbox.js"></script>
   </body>
 </html>

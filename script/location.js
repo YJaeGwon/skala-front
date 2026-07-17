@@ -1,12 +1,31 @@
 // 실시간 현재 위치 정보 표시 (새로고침 버튼으로 재조회 가능)
 var locationBox = document.getElementById("location-box");
 
-function refreshLocation() {
-  // TODO: 기기/브라우저 위치 서비스 문제로 임시로 대한민국 고정 표시 중.
-  // 나중에 해결되면 아래 return 두 줄만 지우면 실제 geolocation 코드가 다시 동작함.
-  locationBox.innerHTML = "<p>🇰🇷 대한민국</p>";
-  return;
+// 국가 코드(예: "KR")를 국기 이모지(🇰🇷)로 변환
+function countryCodeToFlag(countryCode) {
+  return String.fromCodePoint(
+    ...[...countryCode.toUpperCase()].map((char) => 127397 + char.charCodeAt(0))
+  );
+}
 
+// 위도/경도를 국가명으로 변환 (BigDataCloud 역지오코딩 API, API 키 불필요)
+async function showCountry(lat, lon) {
+  var url =
+    "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" +
+    lat + "&longitude=" + lon + "&localityLanguage=ko";
+
+  var response = await fetch(url);
+  var data = await response.json();
+
+  var country = data.countryName || "알 수 없음";
+  var flag = data.countryCode ? countryCodeToFlag(data.countryCode) : "🌍";
+
+  locationBox.innerHTML =
+    "<p>" + flag + " " + country + "</p>" +
+    "<p>위도: " + lat + ", 경도: " + lon + "</p>";
+}
+
+function refreshLocation() {
   if (!navigator.geolocation) {
     locationBox.innerHTML = "<p>이 브라우저는 위치 정보를 지원하지 않습니다.</p>";
     return;
@@ -15,10 +34,16 @@ function refreshLocation() {
   locationBox.innerHTML = "<p>위치 정보를 불러오는 중...</p>";
 
   navigator.geolocation.getCurrentPosition(
-    (position) => {
+    async (position) => {
       var lat = position.coords.latitude.toFixed(4);
       var lon = position.coords.longitude.toFixed(4);
-      locationBox.innerHTML = "<p>위도: " + lat + ", 경도: " + lon + "</p>";
+
+      try {
+        await showCountry(lat, lon);
+      } catch (error) {
+        console.error("Reverse geocoding error:", error);
+        locationBox.innerHTML = "<p>위도: " + lat + ", 경도: " + lon + "</p>";
+      }
     },
     (error) => {
       var message = "위치 정보를 가져올 수 없습니다.";

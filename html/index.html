@@ -24,9 +24,13 @@
       </div>
       <div id="auth-area" class="auth-area"></div>
     </div>
-    <h1>🏠 나의 개인 포털</h1>
 
-    <nav>
+    <section class="dash-hero">
+      <h1>🏠 나의 개인 포털</h1>
+      <p class="dash-hero-sub">이곳은 저의 학습 기록과 일상을 모아둔 개인 포털입니다. 아래 메뉴를 통해 프로필, 수업 시간표, 휴일 일과, 여행지 소개 페이지로 이동할 수 있습니다.</p>
+    </section>
+
+    <nav class="dash-nav">
       <ul>
         <li><a href="myProfile.html">🙋 나의 프로필</a></li>
         <li><a href="myClass.html">📚 나의 수업 시간표</a></li>
@@ -36,13 +40,9 @@
       </ul>
     </nav>
 
-    <div class="content-wrapper">
-      <main>
-        <!-- TODO: 아래는 임시로 채워둔 본문입니다. 원하는 내용으로 자유롭게 수정하세요. -->
-        <h2>👋 환영합니다!</h2>
-        <p>이곳은 저의 학습 기록과 일상을 모아둔 개인 포털입니다. 왼쪽 메뉴를 통해 프로필, 수업 시간표, 휴일 일과, 여행지 소개 페이지로 이동할 수 있습니다.</p>
-
-        <section>
+    <div class="dash-columns">
+      <div class="dash-main">
+        <section class="dash-card">
           <h3>📌 최근 소식/업데이트</h3>
           <ul>
             <li>SKALA 입과</li>
@@ -54,7 +54,7 @@
           </ul>
         </section>
 
-        <section class="quick-links">
+        <section class="dash-card">
           <h3>🔗 바로가기</h3>
           <div class="quick-links-grid">
             <a class="quick-link-card" href="myProfile.html">
@@ -85,7 +85,7 @@
           </div>
         </section>
 
-        <section class="encyclopedia">
+        <section class="dash-card encyclopedia">
           <h3>📖 백과사전 검색</h3>
           <div class="game-controls">
             <input type="text" id="wiki-input" placeholder="검색어 입력 (예: 인공지능)">
@@ -93,15 +93,17 @@
           </div>
           <div id="wiki-result"></div>
         </section>
-      </main>
+      </div>
 
-      <aside>
-        <h2>ℹ️ 사이트 정보</h2>
-        <p>이 포털은 SKALA 교육과정을 수강하며 직접 만든 개인 페이지입니다.</p>
-        <p id="visit-count">방문 횟수를 세는 중...</p>
-        <p id="current-time">🕐 --:--:--</p>
+      <div class="dash-card-stack">
+        <section class="dash-card">
+          <h3>ℹ️ 사이트 정보</h3>
+          <p>이 포털은 SKALA 교육과정을 수강하며 직접 만든 개인 페이지입니다.</p>
+          <p id="visit-count">방문 횟수를 세는 중...</p>
+          <p id="current-time">🕐 --:--:--</p>
+        </section>
 
-        <section>
+        <section class="dash-card">
           <h3>📍 현재 위치</h3>
           <div id="location-box">
             <p>위치 정보를 불러오는 중...</p>
@@ -109,7 +111,7 @@
           <button class="play-btn" onclick="refreshLocation()">🔄 새로고침</button>
         </section>
 
-        <section>
+        <section class="dash-card">
           <h3>🌤️ 실시간 세계 날씨</h3>
           <select id="city-select">
             <option value="none">도시를 선택하세요</option>
@@ -124,75 +126,75 @@
             <p>도시를 선택하면 정보가 표시됩니다.</p>
           </div>
         </section>
-
-        <section class="game-area">
-          <h3>
-            🎮 자바스크립트 놀이터
-            <button id="game-toggle" class="section-toggle" onclick="toggleGameArea()">▼ 접기</button>
-          </h3>
-
-          <div id="game-content">
-            <div class="game-panel">
-              <p class="game-title">🔢 업다운 게임</p>
-              <p id="updown-message">1~50 사이의 숫자를 맞혀보세요!</p>
-              <div class="game-controls">
-                <input type="number" id="updown-input" min="1" max="50" placeholder="숫자 입력">
-                <button class="play-btn" onclick="checkGuess()">확인</button>
-                <button class="play-btn" onclick="resetGame()">다시 시작</button>
-              </div>
-            </div>
-
-            <div class="game-panel">
-              <p class="game-title">🧮 성적 계산기</p>
-              <p id="grade-subject-label">HTML 점수를 입력하세요.</p>
-              <div class="game-controls">
-                <input type="number" id="grade-input" min="0" max="100" placeholder="점수 입력">
-                <button class="play-btn" onclick="submitScore()">입력</button>
-                <button class="play-btn" onclick="resetGrade()">다시 시작</button>
-              </div>
-              <p id="grade-result"></p>
-            </div>
-
-            <div class="game-panel">
-              <p class="game-title">🎒 내 가방 보기</p>
-              <div class="game-controls">
-                <input type="text" id="bag-item-input" placeholder="물건 이름">
-                <input type="number" id="bag-qty-input" min="1" value="1" placeholder="개수">
-                <button class="play-btn" onclick="addToBag()">담기</button>
-              </div>
-              <ul id="bag-list"></ul>
-            </div>
-
-            <div class="game-panel">
-              <p class="game-title">✂️ 가위바위보</p>
-              <div class="game-controls">
-                <button class="play-btn" onclick="playRockPaperScissors('가위')">✌️ 가위</button>
-                <button class="play-btn" onclick="playRockPaperScissors('바위')">✊ 바위</button>
-                <button class="play-btn" onclick="playRockPaperScissors('보')">✋ 보</button>
-              </div>
-              <p id="rps-result"></p>
-              <p id="rps-streak"></p>
-            </div>
-
-            <div class="game-panel">
-              <p class="game-title">🎱 로또 번호 생성기</p>
-              <button class="play-btn" onclick="generateLotto()">번호 뽑기</button>
-              <div id="lotto-result" class="lotto-numbers"></div>
-            </div>
-
-            <div class="game-panel">
-              <p class="game-title">⚖️ BMI 계산기</p>
-              <div class="game-controls">
-                <input type="number" id="bmi-height" placeholder="키(cm)">
-                <input type="number" id="bmi-weight" placeholder="몸무게(kg)">
-                <button class="play-btn" onclick="calculateBMI()">계산</button>
-              </div>
-              <p id="bmi-result"></p>
-            </div>
-          </div>
-        </section>
-      </aside>
+      </div>
     </div>
+
+    <section class="dash-card game-area">
+      <h3>
+        🎮 자바스크립트 놀이터
+        <button id="game-toggle" class="section-toggle" onclick="toggleGameArea()">▼ 접기</button>
+      </h3>
+
+      <div id="game-content">
+        <div class="game-panel">
+          <p class="game-title">🔢 업다운 게임</p>
+          <p id="updown-message">1~50 사이의 숫자를 맞혀보세요!</p>
+          <div class="game-controls">
+            <input type="number" id="updown-input" min="1" max="50" placeholder="숫자 입력">
+            <button class="play-btn" onclick="checkGuess()">확인</button>
+            <button class="play-btn" onclick="resetGame()">다시 시작</button>
+          </div>
+        </div>
+
+        <div class="game-panel">
+          <p class="game-title">🧮 성적 계산기</p>
+          <p id="grade-subject-label">HTML 점수를 입력하세요.</p>
+          <div class="game-controls">
+            <input type="number" id="grade-input" min="0" max="100" placeholder="점수 입력">
+            <button class="play-btn" onclick="submitScore()">입력</button>
+            <button class="play-btn" onclick="resetGrade()">다시 시작</button>
+          </div>
+          <p id="grade-result"></p>
+        </div>
+
+        <div class="game-panel">
+          <p class="game-title">🎒 내 가방 보기</p>
+          <div class="game-controls">
+            <input type="text" id="bag-item-input" placeholder="물건 이름">
+            <input type="number" id="bag-qty-input" min="1" value="1" placeholder="개수">
+            <button class="play-btn" onclick="addToBag()">담기</button>
+          </div>
+          <ul id="bag-list"></ul>
+        </div>
+
+        <div class="game-panel">
+          <p class="game-title">✂️ 가위바위보</p>
+          <div class="game-controls">
+            <button class="play-btn" onclick="playRockPaperScissors('가위')">✌️ 가위</button>
+            <button class="play-btn" onclick="playRockPaperScissors('바위')">✊ 바위</button>
+            <button class="play-btn" onclick="playRockPaperScissors('보')">✋ 보</button>
+          </div>
+          <p id="rps-result"></p>
+          <p id="rps-streak"></p>
+        </div>
+
+        <div class="game-panel">
+          <p class="game-title">🎱 로또 번호 생성기</p>
+          <button class="play-btn" onclick="generateLotto()">번호 뽑기</button>
+          <div id="lotto-result" class="lotto-numbers"></div>
+        </div>
+
+        <div class="game-panel">
+          <p class="game-title">⚖️ BMI 계산기</p>
+          <div class="game-controls">
+            <input type="number" id="bmi-height" placeholder="키(cm)">
+            <input type="number" id="bmi-weight" placeholder="몸무게(kg)">
+            <button class="play-btn" onclick="calculateBMI()">계산</button>
+          </div>
+          <p id="bmi-result"></p>
+        </div>
+      </div>
+    </section>
     </div>
 
     <script src="../script/darkMode.js"></script>
