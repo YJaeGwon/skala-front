@@ -167,6 +167,23 @@ a {
   opacity: 0.85;
 }
 
+.dash-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.9em;
+  opacity: 0.75;
+}
+
+.dash-footer p {
+  margin: 4px 0;
+}
+
+.dash-footer a {
+  text-decoration: underline;
+}
+
 
 /* ===== 과제2: 박스 모델의 이해 ===== */
 .container {
