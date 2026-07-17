@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 여행지 소개</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+      document.documentElement.style.fontSize =
+        (Number(localStorage.getItem("fontScale")) || 1) * 100 + "%";
+    </script>
+  </head>
+  <body>
+    <div class="container">
+    <p><a href="index.html" class="home-btn">🏠 홈으로</a></p>
+    <h1>✈️ 나의 여행지 소개</h1>
+
+    <h2>🎵 배경 음악</h2>
+    <audio controls>
+      <source src="../media/music.mp3" type="audio/mpeg">
+      브라우저가 audio 태그를 지원하지 않습니다.
+    </audio>
+
+    <h2>📸 여행 사진</h2>
+    <div class="trip-slider">
+      <button class="slider-btn slider-prev" onclick="moveSlide(-1)">‹</button>
+      <div class="slider-viewport">
+        <div class="slider-track" id="tripSliderTrack">
+          <p class="trip-card">
+            <img src="../media/리장.jpg" alt="리장 트레킹"><br>
+            🏞️ 리장 트레킹 (<!-- 연도 -->)
+          </p>
+          <p class="trip-card">
+            <img src="../media/세부.jpg" alt="세부 리조트"><br>
+            🏝️ 세부 리조트 (<!-- 연도 -->)
+          </p>
+          <p class="trip-card">
+            <img src="../media/홋카이도.jpg" alt="홋카이도 온천"><br>
+            ♨️ 홋카이도 온천 (<!-- 연도 -->)
+          </p>
+        </div>
+      </div>
+      <button class="slider-btn slider-next" onclick="moveSlide(1)">›</button>
+    </div>
+
+    <h2>🎬 여행 영상</h2>
+    <p>
+      <video controls width="400">
+        <source src="../media/video.mp4" type="video/mp4">
+        브라우저가 video 태그를 지원하지 않습니다.
+      </video>
+      <br><!-- 영상 설명 -->
+    </p>
+    </div>
+
+    <script src="../script/tripSlider.js"></script>
+  </body>
+</html>

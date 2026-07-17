@@ -1,12 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype html>
+<html lang="ko">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[과제]Project 구성과 index.html 생성</title>
-</head>
-<body>
-    <h1>환영 인사</h1>
-    <p>스칼라에 오신 것을 환영합니다.</p>
-</body>
+    <title>나의 개인 포털</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+      document.documentElement.style.fontSize =
+        (Number(localStorage.getItem("fontScale")) || 1) * 100 + "%";
+    </script>
+  </head>
+  <body>
+    <div class="container">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button id="theme-toggle" class="theme-toggle" onclick="toggleDarkMode()">🌙 다크모드</button>
+        <div class="font-size-control">
+          <button class="font-size-btn" onclick="decreaseFontSize()" aria-label="글자 크기 줄이기">가−</button>
+          <span id="font-size-label">100%</span>
+          <button class="font-size-btn" onclick="increaseFontSize()" aria-label="글자 크기 키우기">가+</button>
+        </div>
+      </div>
+      <div id="auth-area" class="auth-area"></div>
+    </div>
+    <h1>🏠 나의 개인 포털</h1>
+
+    <nav>
+      <ul>
+        <li><a href="myProfile.html">🙋 나의 프로필</a></li>
+        <li><a href="myClass.html">📚 나의 수업 시간표</a></li>
+        <li><a href="holiday.html">🌴 나의 휴일 일과</a></li>
+        <li><a href="myTrip.html">✈️ 나의 여행지</a></li>
+        <li><a href="signUp.html">📝 회원가입</a></li>
+      </ul>
+    </nav>
+
+    <div class="content-wrapper">
+      <main>
+        <!-- TODO: 아래는 임시로 채워둔 본문입니다. 원하는 내용으로 자유롭게 수정하세요. -->
+        <h2>👋 환영합니다!</h2>
+        <p>이곳은 저의 학습 기록과 일상을 모아둔 개인 포털입니다. 왼쪽 메뉴를 통해 프로필, 수업 시간표, 휴일 일과, 여행지 소개 페이지로 이동할 수 있습니다.</p>
+
+        <section>
+          <h3>📌 최근 소식/업데이트</h3>
+          <ul>
+            <li>SKALA 입과</li>
+            <li>📍 실시간 위치 정보 위젯을 추가했습니다.</li>
+            <li>✂️ 가위바위보 게임을 추가했습니다.</li>
+            <li>📖 백과사전 검색 기능을 추가했습니다.</li>
+            <li>🕐 현재 시간 표시와 글자 크기 조절 기능을 추가했습니다.</li>
+            <li>🎱 로또 번호 생성기와 ⚖️ BMI 계산기를 추가했습니다.</li>
+          </ul>
+        </section>
+
+        <section class="quick-links">
+          <h3>🔗 바로가기</h3>
+          <div class="quick-links-grid">
+            <a class="quick-link-card" href="myProfile.html">
+              <span class="quick-link-icon">🙋</span>
+              <strong>나의 프로필</strong>
+              <p>좋아하는 것과 목표 소개</p>
+            </a>
+            <a class="quick-link-card" href="myClass.html">
+              <span class="quick-link-icon">📚</span>
+              <strong>수업 시간표</strong>
+              <p>SKALA 교육과정 전체 일정</p>
+            </a>
+            <a class="quick-link-card" href="holiday.html">
+              <span class="quick-link-icon">🌴</span>
+              <strong>휴일 일과</strong>
+              <p>쉬는 날의 하루 루틴</p>
+            </a>
+            <a class="quick-link-card" href="myTrip.html">
+              <span class="quick-link-icon">✈️</span>
+              <strong>여행지 소개</strong>
+              <p>다녀온 여행지 갤러리</p>
+            </a>
+            <a class="quick-link-card" href="signUp.html">
+              <span class="quick-link-icon">📝</span>
+              <strong>회원가입</strong>
+              <p>로그인은 상단에서</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="encyclopedia">
+          <h3>📖 백과사전 검색</h3>
+          <div class="game-controls">
+            <input type="text" id="wiki-input" placeholder="검색어 입력 (예: 인공지능)">
+            <button class="play-btn" onclick="searchWiki()">검색</button>
+          </div>
+          <div id="wiki-result"></div>
+        </section>
+      </main>
+
+      <aside>
+        <h2>ℹ️ 사이트 정보</h2>
+        <p>이 포털은 SKALA 교육과정을 수강하며 직접 만든 개인 페이지입니다.</p>
+        <p id="visit-count">방문 횟수를 세는 중...</p>
+        <p id="current-time">🕐 --:--:--</p>
+
+        <section>
+          <h3>📍 현재 위치</h3>
+          <div id="location-box">
+            <p>위치 정보를 불러오는 중...</p>
+          </div>
+          <button class="play-btn" onclick="refreshLocation()">🔄 새로고침</button>
+        </section>
+
+        <section>
+          <h3>🌤️ 실시간 세계 날씨</h3>
+          <select id="city-select">
+            <option value="none">도시를 선택하세요</option>
+            <option value="37.57,126.98">🇰🇷 대한민국 (서울)</option>
+            <option value="35.68,139.65">🇯🇵 일본 (도쿄)</option>
+            <option value="40.71,-74.01">🇺🇸 미국 (뉴욕)</option>
+            <option value="48.85,2.35">🇫🇷 프랑스 (파리)</option>
+            <option value="51.51,-0.13">🇬🇧 영국 (런던)</option>
+            <option value="-33.87,151.21">🇦🇺 호주 (시드니)</option>
+          </select>
+          <div id="weather-box">
+            <p>도시를 선택하면 정보가 표시됩니다.</p>
+          </div>
+        </section>
+
+        <section class="game-area">
+          <h3>
+            🎮 자바스크립트 놀이터
+            <button id="game-toggle" class="section-toggle" onclick="toggleGameArea()">▼ 접기</button>
+          </h3>
+
+          <div id="game-content">
+            <div class="game-panel">
+              <p class="game-title">🔢 업다운 게임</p>
+              <p id="updown-message">1~50 사이의 숫자를 맞혀보세요!</p>
+              <div class="game-controls">
+                <input type="number" id="updown-input" min="1" max="50" placeholder="숫자 입력">
+                <button class="play-btn" onclick="checkGuess()">확인</button>
+                <button class="play-btn" onclick="resetGame()">다시 시작</button>
+              </div>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">🧮 성적 계산기</p>
+              <p id="grade-subject-label">HTML 점수를 입력하세요.</p>
+              <div class="game-controls">
+                <input type="number" id="grade-input" min="0" max="100" placeholder="점수 입력">
+                <button class="play-btn" onclick="submitScore()">입력</button>
+                <button class="play-btn" onclick="resetGrade()">다시 시작</button>
+              </div>
+              <p id="grade-result"></p>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">🎒 내 가방 보기</p>
+              <div class="game-controls">
+                <input type="text" id="bag-item-input" placeholder="물건 이름">
+                <input type="number" id="bag-qty-input" min="1" value="1" placeholder="개수">
+                <button class="play-btn" onclick="addToBag()">담기</button>
+              </div>
+              <ul id="bag-list"></ul>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">✂️ 가위바위보</p>
+              <div class="game-controls">
+                <button class="play-btn" onclick="playRockPaperScissors('가위')">✌️ 가위</button>
+                <button class="play-btn" onclick="playRockPaperScissors('바위')">✊ 바위</button>
+                <button class="play-btn" onclick="playRockPaperScissors('보')">✋ 보</button>
+              </div>
+              <p id="rps-result"></p>
+              <p id="rps-streak"></p>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">🎱 로또 번호 생성기</p>
+              <button class="play-btn" onclick="generateLotto()">번호 뽑기</button>
+              <div id="lotto-result" class="lotto-numbers"></div>
+            </div>
+
+            <div class="game-panel">
+              <p class="game-title">⚖️ BMI 계산기</p>
+              <div class="game-controls">
+                <input type="number" id="bmi-height" placeholder="키(cm)">
+                <input type="number" id="bmi-weight" placeholder="몸무게(kg)">
+                <button class="play-btn" onclick="calculateBMI()">계산</button>
+              </div>
+              <p id="bmi-result"></p>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+    </div>
+
+    <script src="../script/darkMode.js"></script>
+    <script src="../script/fontSize.js"></script>
+    <script src="../script/clock.js"></script>
+    <script src="../script/auth.js"></script>
+    <script src="../script/uiToggles.js"></script>
+    <script src="../script/visitCount.js"></script>
+    <script src="../script/upDown.js"></script>
+    <script src="../script/grade.js"></script>
+    <script src="../script/bag.js"></script>
+    <script src="../script/rps.js"></script>
+    <script src="../script/lotto.js"></script>
+    <script src="../script/bmi.js"></script>
+    <script src="../script/location.js"></script>
+    <script src="../script/encyclopedia.js"></script>
+    <script type="module" src="../script/realtimeInfo.js"></script>
+  </body>
 </html>

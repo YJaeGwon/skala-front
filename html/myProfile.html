@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 프로필</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+      document.documentElement.style.fontSize =
+        (Number(localStorage.getItem("fontScale")) || 1) * 100 + "%";
+    </script>
+  </head>
+  <body>
+    <div class="container">
+    <p><a href="index.html" class="home-btn">🏠 홈으로</a></p>
+    <h1>🙋 나의 프로필</h1>
+
+    <h2>🍽️ 내가 좋아하는 음식</h2>
+    <ul>
+      <li>🍗 치킨</li>
+      <li>🍢 떡볶이</li>
+      <li>🍚 국밥</li>
+    </ul>
+
+    <h2>✅ 오늘 해야 할 일</h2>
+    <ol>
+      <li>외국어 배우기</li>
+      <li>운동하기</li>
+      <li>프로그래밍 언어 배우기</li>
+    </ol>
+
+    <h2>✨ 나를 설명하는 단어들</h2>
+    <dl>
+      <dt>🌱 성실함</dt>
+      <dd>맡은 일은 끝까지 책임지고 마무리합니다.</dd>
+
+      <dt>🔍 호기심</dt>
+      <dd>새로운 기술이나 관심사가 생기면 직접 부딪혀보는 걸 좋아합니다.</dd>
+
+      <dt>😊 긍정적</dt>
+      <dd>어려운 상황에서도 좋은 점을 찾으려 노력합니다.</dd>
+    </dl>
+
+    <h2>🎨 내가 좋아하는 취미</h2>
+    <ul>
+      <li>🎮 게임하기</li>
+      <li>📚 독서</li>
+      <li>🎧 음악 감상</li>
+    </ul>
+
+    <h2>🎯 올해 이루고 싶은 목표</h2>
+    <ol>
+      <li>SKALA 교육과정 끝까지 완주하기</li>
+      <li>포트폴리오용 프로젝트 하나 완성하기</li>
+      <li>꾸준히 운동해서 체력 기르기</li>
+    </ol>
+
+    <h2>🎬 최근 감명 깊게 본 영화/드라마</h2>
+    <ul>
+      <li>왕과 사는 남자</li>
+    </ul>
+    </div>
+  </body>
+</html>

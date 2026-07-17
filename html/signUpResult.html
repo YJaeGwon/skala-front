@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 완료</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+      document.documentElement.style.fontSize =
+        (Number(localStorage.getItem("fontScale")) || 1) * 100 + "%";
+    </script>
+  </head>
+  <body>
+    <div class="container">
+    <p><a href="index.html" class="home-btn">🏠 홈으로</a></p>
+    <h1>🎉 회원가입이 완료되었습니다!</h1>
+
+    <ul>
+      <li>SKALA-FRONT 회원이 되신 것을 환영합니다.</li>
+      <li>입력하신 이메일 주소로 인증 메일이 발송되었습니다.</li>
+      <li>보안을 위해 첫 로그인 후 비밀번호를 변경해 주세요.</li>
+      <li>작성하신 프로필 정보는 마이페이지에서 언제든 수정할 수 있습니다.</li>
+      <li>아래 링크를 눌러 제가 만든 다른 페이지도 둘러보세요!</li>
+    </ul>
+
+    <p><a href="myProfile.html">🙋 나의 프로필</a></p>
+    <p><a href="myClass.html">📚 나의 수업 시간표</a></p>
+    <p><a href="holiday.html">🌴 나의 휴일 일과</a></p>
+    <p><a href="myTrip.html">✈️ 나의 여행지</a></p>
+    <p><a href="signUp.html">📝 회원가입 페이지로 돌아가기</a></p>
+    <p><a href="index.html">🏠 메인으로 돌아가기</a></p>
+    </div>
+  </body>
+</html>

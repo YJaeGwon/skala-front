@@ -1,0 +1,646 @@
+/* 구글 폰트 (Gowun Dodum) - HTML에 <link> 없이 CSS에서 바로 불러옴 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+/* ===== 다크모드: 색상을 변수로 관리하고 [data-theme]로 전환 ===== */
+:root {
+  --bg-color: #f6f4ef;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --border-color: #e0ddd4;
+  --border-strong: #cfcac0;
+  --heading-color: #2f6f5e;
+  --accent-color: #ffb703;
+  --brand-color: #2f6f5e;
+  --brand-hover: #24594b;
+  --btn-reset-bg: #e0ddd4;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1b1f1e;
+  --text-color: #e7e5e0;
+  --card-bg: #262b29;
+  --border-color: #3c433f;
+  --border-strong: #4a534d;
+  --heading-color: #6fcfae;
+  --accent-color: #ffcf4d;
+  --brand-color: #3d8a72;
+  --brand-hover: #56a88c;
+  --btn-reset-bg: #3c433f;
+}
+
+/* ===== 과제1: 전체 테마 및 텍스트 Styling ===== */
+body {
+  font-family: 'Gowun Dodum', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2 {
+  color: var(--heading-color);
+  padding: 8px 4px;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+a {
+  color: var(--heading-color);
+  text-decoration: none;
+}
+
+.home-btn,
+.theme-toggle {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 14px;
+  background-color: var(--brand-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.font-size-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.font-size-btn {
+  padding: 4px 10px;
+  font-size: 0.85em;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.font-size-btn:hover {
+  background-color: var(--border-color);
+}
+
+#font-size-label {
+  padding: 0 8px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--heading-color);
+  min-width: 34px;
+  text-align: center;
+  border-left: 1px solid var(--border-strong);
+  border-right: 1px solid var(--border-strong);
+}
+
+.auth-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-input {
+  width: 120px;
+}
+
+.welcome-message {
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+.section-toggle {
+  margin-left: 8px;
+  padding: 2px 10px;
+  font-size: 0.7em;
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: inherit;
+  vertical-align: middle;
+}
+
+
+/* ===== 과제2: 박스 모델의 이해 ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.trip-card {
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid var(--border-strong);
+  border-collapse: collapse;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.week-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--heading-color);
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+.week-detail {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+
+/* ===== 과제3: 가독성 높은 회원가입 화면 ===== */
+input, textarea, select {
+  width: 260px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* 라디오/체크박스는 위 규칙(260px 폭)에서 제외하고 간격만 좁게 조정 */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  border: none;
+  margin: 0 4px 0 0;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.btn-submit, .btn-reset {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-submit {
+  background-color: var(--brand-color);
+  color: #ffffff;
+}
+
+.btn-reset {
+  background-color: var(--btn-reset-bg);
+  color: var(--text-color);
+}
+
+
+/* ===== 과제4: Flex와 Grid로 레이아웃 정리하기 ===== */
+nav ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.content-wrapper main {
+  flex: 2;
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 20px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  z-index: 1;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 16px;
+  bottom: -20px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+.timeline-time {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--heading-color);
+  margin: 0 0 6px;
+}
+
+.timeline-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-content p {
+  margin: 0;
+}
+
+.timeline-content:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.encyclopedia {
+  margin-top: 20px;
+}
+
+#wiki-result:not(:empty) {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.wiki-thumb {
+  max-width: 140px;
+  border-radius: 8px;
+  float: right;
+  margin: 0 0 8px 12px;
+}
+
+.content-wrapper aside {
+  flex: 1;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.trip-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.quick-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 8px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-link-icon {
+  font-size: 28px;
+}
+
+.quick-link-card strong {
+  color: var(--heading-color);
+}
+
+.quick-link-card p {
+  margin: 0;
+  font-size: 0.85em;
+}
+
+.game-area h3 {
+  display: flex;
+  align-items: center;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#game-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#game-content[hidden] {
+  display: none;
+}
+
+#bag-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+#bag-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bag-remove-btn {
+  padding: 2px 8px;
+  font-size: 0.8em;
+  background-color: var(--btn-reset-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.bag-remove-btn:hover {
+  background-color: var(--border-strong);
+}
+
+.lotto-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.lotto-ball {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.lotto-yellow {
+  background-color: #fbc400;
+}
+
+.lotto-blue {
+  background-color: #69c8f2;
+}
+
+.lotto-red {
+  background-color: #ff7272;
+}
+
+.lotto-gray {
+  background-color: #aaaaaa;
+}
+
+.lotto-green {
+  background-color: #b0d840;
+}
+
+.game-panel {
+  padding: 10px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.game-title {
+  margin: 0 0 6px;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.game-controls input {
+  width: 90px;
+}
+
+#wiki-input {
+  flex: 1 1 240px;
+  width: auto;
+}
+
+.play-btn {
+  padding: 8px 14px;
+  font-size: 0.95em;
+  font-weight: bold;
+  background-color: var(--brand-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* 여행 사진 슬라이더 - 사진이 커도 페이지가 아닌 슬라이더 내부에서만 넘어감 */
+.trip-slider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.slider-viewport {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slider-track .trip-card {
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+.slider-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slider-btn {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+/* ===== 과제5: 스마트폰에서 보기 (반응형 웹 디자인) ===== */
+@media (max-width: 786px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  .trip-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-slider {
+    max-width: 100%;
+  }
+}
+
+
+/* ===== 과제6: 상호작용을 반영하는 인터랙션 디자인 ===== */
+nav a,
+.btn-submit,
+.btn-reset {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+.btn-submit:hover {
+  background-color: var(--brand-hover);
+}
+
+.btn-reset:hover {
+  background-color: var(--border-strong);
+}
+
+.home-btn:hover,
+.theme-toggle:hover {
+  background-color: var(--brand-hover);
+}
+
+.week-link:hover {
+  color: var(--accent-color);
+}
+
+.trip-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.quick-link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.play-btn:hover {
+  background-color: var(--brand-hover);
+  transform: translateY(-2px);
+}
+
+.result-flash {
+  animation: resultFlash 0.5s ease;
+  border-radius: 6px;
+}
+
+@keyframes resultFlash {
+  from {
+    background-color: var(--accent-color);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+/* 타이틀이 은은하게 빛나는 효과 */
+h1 {
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 4px rgba(255, 183, 3, 0.3);
+  }
+  to {
+    text-shadow: 0 0 14px rgba(255, 183, 3, 0.8);
+  }
+}

@@ -1,0 +1,45 @@
+Index.html
+나의 수업, 휴일 ,프로필 바로가기 추가
+필수사용 : <a>  //CSS사용X
+
+myHoliday.html
+나의 휴일 일과를 작성
+
+myProfile.html
+필수사용 : <ul>내가 좋아하는 음식 <ol>올 해 할 일 <dl> 나를 설명하는 단어들   //CSS사용X
+
+
+myClass.html
+필수사용 : <table> <thead> 시간,요일 <tbody> <td> 2시간 이상의 강의나, 점시시간은 셀을 합쳐서 표시 //CSS사용X
+
+
+signUp.html
+회원가입 페이지를 작성한다.
+필수사용 : <form> - action은 signUpResult.html, method는 get
+<fieldset><legend><label>
+<input> - placeholder, required 등 속성사용
+<select><option><textarea>
+<submit><reset>
+
+
+signUpResult.html
+회원가입결과 페이지를 작성한다.
+회원가입에서 회원가입 버튼을 클릭하면 회원가입결과 페이지로 이동한다.
+
+
+myTrip.html
+나의 여행지를 소개하는 페이지를 작성한다.
+필수사용 : <audio><source><img><video><source>
+
+
+포털 사이트형 메인 hub 만들기
+기존에 만든 myClass, myHoliday, myProfile, myTrip,
+signUp 을 한 곳에 모아 볼수 있는 개인 메인 포털 작성
+수정 File: index.html
+필수 사용 Element
+• <nav> - 다른 파일로 이동하는 메뉴 링크를 넣기
+• <main> - 본문 영역을 선언하고 컨텐츠 넣기
+• <aside> - 사이드바 넣고 부가 정보 넣기
+
+꾸미기는 나중에 style.css파일로 함!
+이모지 사용 가능
