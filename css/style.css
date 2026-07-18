@@ -3,29 +3,29 @@
 
 /* ===== 다크모드: 색상을 변수로 관리하고 [data-theme]로 전환 ===== */
 :root {
-  --bg-color: #f6f4ef;
-  --text-color: #333333;
+  --bg-color: #faf5ef;
+  --text-color: #2e2a26;
   --card-bg: #ffffff;
-  --border-color: #e0ddd4;
-  --border-strong: #cfcac0;
-  --heading-color: #2f6f5e;
-  --accent-color: #ffb703;
-  --brand-color: #2f6f5e;
-  --brand-hover: #24594b;
-  --btn-reset-bg: #e0ddd4;
+  --border-color: #ece1d3;
+  --border-strong: #ddccb5;
+  --heading-color: #c1503f;
+  --accent-color: #f2a541;
+  --brand-color: #1f6f78;
+  --brand-hover: #16545c;
+  --btn-reset-bg: #ece1d3;
 }
 
 [data-theme="dark"] {
-  --bg-color: #1b1f1e;
-  --text-color: #e7e5e0;
-  --card-bg: #262b29;
-  --border-color: #3c433f;
-  --border-strong: #4a534d;
-  --heading-color: #6fcfae;
-  --accent-color: #ffcf4d;
-  --brand-color: #3d8a72;
-  --brand-hover: #56a88c;
-  --btn-reset-bg: #3c433f;
+  --bg-color: #201b17;
+  --text-color: #f1e9e0;
+  --card-bg: #2b2420;
+  --border-color: #40352c;
+  --border-strong: #55473a;
+  --heading-color: #e8836f;
+  --accent-color: #ffc069;
+  --brand-color: #3fa3ac;
+  --brand-hover: #5cbcc4;
+  --btn-reset-bg: #40352c;
 }
 
 /* ===== 과제1: 전체 테마 및 텍스트 Styling ===== */
@@ -151,9 +151,10 @@ a {
 .dash-hero {
   padding: 28px 24px;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, var(--card-bg), var(--bg-color));
+  background: linear-gradient(135deg, var(--card-bg), var(--bg-color) 70%);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 20px;
+  border-left: 4px solid var(--accent-color);
 }
 
 .dash-hero h1 {
@@ -196,7 +197,7 @@ a {
   box-sizing: border-box;
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 12px;
   margin: 10px;
   text-align: center;
@@ -323,15 +324,16 @@ fieldset {
   box-sizing: border-box;
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .dash-card h3 {
   margin-top: 0;
   color: var(--heading-color);
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .timeline {
@@ -431,7 +433,7 @@ fieldset {
   padding: 16px 8px;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 14px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -538,7 +540,7 @@ fieldset {
   padding: 10px;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 .game-title {
@@ -570,7 +572,7 @@ fieldset {
   background-color: var(--brand-color);
   color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-family: inherit;
   transition: transform 0.2s ease, background-color 0.2s ease;
@@ -617,7 +619,7 @@ fieldset {
   width: 100%;
   height: 130px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: zoom-in;
 }
 
